@@ -143,6 +143,10 @@ module Capistrano
           end
 
           def copy_files files
+            if files.nil?
+              puts "Files are empty/nil, we ignore these files"
+              return
+            end
             files.each { |name| process_file(name) }
           end
 
